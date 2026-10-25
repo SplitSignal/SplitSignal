@@ -27,3 +27,11 @@ venv/
 *.sqlite
 *.sqlite3
 *.db
+
+/Assets/
+/Packages/
+/ProjectSettings/
+/Library/
+/Temp/
+/Logs/
+/UserSettings/
