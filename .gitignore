@@ -1,37 +1,37 @@
-# # OS junk
-# .DS_Store
-# Thumbs.db
-# desktop.ini
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# # Editors
-# .idea/
-# *.swp
+# Editors
+.idea/
+*.swp
 
-# # Secrets / local config — never commit these
-# .env
-# .env.local
-# *.local.json
+# Secrets / local config — never commit these
+.env
+.env.local
+*.local.json
 
-# # Node (web/ and server/ if you use JS)
-# node_modules/
-# npm-debug.log*
-# yarn-error.log*
+# Node (web/ and server/ if you use JS)
+node_modules/
+npm-debug.log*
+yarn-error.log*
 
-# # Python (server/ if you use Python)
-# __pycache__/
-# *.py[cod]
-# .venv/
-# venv/
+# Python (server/ if you use Python)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 
-# # Local databases
-# *.sqlite
-# *.sqlite3
-# *.db
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
 
-# /Assets/
-# /Packages/
-# /ProjectSettings/
-# /Library/
-# /Temp/
-# /Logs/
-# /UserSettings/
+/Assets/
+/Packages/
+/ProjectSettings/
+/Library/
+/Temp/
+/Logs/
+/UserSettings/
