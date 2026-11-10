@@ -1,0 +1,25 @@
+﻿@page
+@model GameServer.Pages.IndexModel
+@{
+}
+
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col" id="unity-container">
+            <p>Use this section to send messages as the Unity player</p>
+            <button type="submit" asp-page-handler="CreateSession" class="btn btn-primary">Create Session</button>
+        </div>
+        <div class="col">
+            Will be blank
+        </div>
+        <div class="col" id="web-container">
+            <form method="post" asp-page-handler="JoinSession">
+                <label asp-for="sessionCode_join"></label>
+                <input asp-for="sessionCode_join" class="form-control"/>
+                <button type="submit">Join</button>
+            </form>
+            
+        </div>
+    </div>
+</div>

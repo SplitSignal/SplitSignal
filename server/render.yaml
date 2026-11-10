@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: split-signal-server
+    runtime: docker
+    plan: free
+
+    dockerfilePath: ./server/GameServer/GameServer/Dockerfile
+    dockerContext: ./server/GameServer
+
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:8080
+
+      - key: MongoDB__ConnectionString
+        sync: false
+
+      - key: MongoDB__DatabaseName
+        value: SplitSignal

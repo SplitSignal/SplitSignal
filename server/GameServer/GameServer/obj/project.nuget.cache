@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "RMxoFzrSJEM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\GameServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ryeki\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\10.0.14\\microsoft.aspnetcore.http.connections.client.10.0.14.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.aspnetcore.signalr.client\\10.0.14\\microsoft.aspnetcore.signalr.client.10.0.14.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\10.0.14\\microsoft.aspnetcore.signalr.client.core.10.0.14.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.24.1-preview.1\\microsoft.visualstudio.azure.containers.tools.targets.1.24.1-preview.1.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\mongodb.bson\\3.12.0\\mongodb.bson.3.12.0.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\mongodb.driver\\3.12.0\\mongodb.driver.3.12.0.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\scalar.aspnetcore\\2.18.2\\scalar.aspnetcore.2.18.2.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\sharpcompress\\0.48.1\\sharpcompress.0.48.1.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\snappier\\1.3.1\\snappier.1.3.1.nupkg.sha512",
+    "C:\\Users\\ryeki\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
+  ],
+  "logs": []
+}
