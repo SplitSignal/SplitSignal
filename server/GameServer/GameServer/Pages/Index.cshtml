@@ -1,25 +1,133 @@
 ﻿@page
 @model GameServer.Pages.IndexModel
-@{
-}
 
+<style>
+    .panels {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col" id="unity-container">
-            <p>Use this section to send messages as the Unity player</p>
-            <button type="submit" asp-page-handler="CreateSession" class="btn btn-primary">Create Session</button>
-        </div>
-        <div class="col">
-            Will be blank
-        </div>
-        <div class="col" id="web-container">
-            <form method="post" asp-page-handler="JoinSession">
-                <label asp-for="sessionCode_join"></label>
-                <input asp-for="sessionCode_join" class="form-control"/>
-                <button type="submit">Join</button>
-            </form>
-            
-        </div>
-    </div>
+    .panel {
+        width: 400px;
+        min-height: 400px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+    }
+</style>
+
+<div class="panels">
+    <div class="panel">
+        <h2>Unity</h2>
+
+        <p>
+            Session: <span id="createdCode">
+            @Model.SessionCodeCreate
+        </span>
+    </p>
+
+    <button type="button" id="createBtn">
+        Create Session
+    </button>
+
+    <p id="unityStatus"></p>
 </div>
+
+<div class="panel">
+    <h2>Web</h2>
+
+    <input id="joinCode"
+           placeholder="Session Code" />
+
+    <button type="button" id="joinBtn">
+        Join Session
+    </button>
+
+    <p id="webStatus"></p>
+</div>
+</div>
+
+<script src="@Url.Content("~/lib/microsoft/signalr/dist/browser/signalr.min.js")"></script>
+
+<script>
+    console.log("SignalR:", typeof window.signalR);
+
+    const unityConn = new signalR.HubConnectionBuilder()
+        .withUrl("/gamehub")
+        .withAutomaticReconnect()
+        .build();
+
+    const webConn = new signalR.HubConnectionBuilder()
+        .withUrl("/gamehub")
+        .withAutomaticReconnect()
+        .build();
+
+    let unitySessionCode = null;
+    let webSessionCode = null;
+
+    async function ensureConnected(conn) {
+        if (conn.state === signalR.HubConnectionState.Disconnected) {
+            await conn.start();
+        }
+    }
+
+    async function createSession() {
+        try {
+            const code = document.getElementById("createdCode")
+                .textContent.trim();
+
+            await ensureConnected(unityConn);
+
+            const created = await unityConn.invoke(
+                "CreateSession", code, "Unity"
+            );
+
+            if (created === false) {
+                throw new Error("Session creation failed");
+            }
+
+            unitySessionCode = code;
+
+            document.getElementById("joinCode").value = code;
+            document.getElementById("unityStatus")
+                .textContent = "Connected: " + code;
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function joinSession() {
+        try {
+            const code = document.getElementById("joinCode")
+                .value.trim();
+
+            if (!code) return;
+
+            await ensureConnected(webConn);
+
+            const joined = await webConn.invoke(
+                "JoinSession", code, "Web"
+            );
+
+            if (joined === false) {
+                throw new Error("Join was rejected");
+            }
+
+            webSessionCode = code;
+
+            document.getElementById("webStatus")
+                .textContent = "Connected: " + code;
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    document.getElementById("createBtn")
+        .addEventListener("click", createSession);
+
+    document.getElementById("joinBtn")
+        .addEventListener("click", joinSession);
+</script>

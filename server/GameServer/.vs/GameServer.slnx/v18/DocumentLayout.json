@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\",
+  "WorkspaceRootPath": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\development\\csce a401\\temp\\server\\gameserver\\gameserver\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|c:\\users\\ryeki\\onedrive\\documents\\github\\splitsignal\\server\\gameserver\\gameserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CB1D2F4-457E-DC9A-2B1C-5000C4602A0C}|GameServer\\GameServer.csproj|solutionrelative:gameserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Request.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Request.cs",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Request.cs",
               "RelativeDocumentMoniker": "GameServer\\Request.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Request.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Request.cs",
               "RelativeToolTip": "GameServer\\Request.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAMwA4AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAIAywA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-22T04:59:16.844Z",
               "IsPinned": true,
@@ -56,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "GameHub.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameHub.cs",
               "RelativeDocumentMoniker": "GameServer\\GameHub.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\GameHub.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameHub.cs",
               "RelativeToolTip": "GameServer\\GameHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-22T04:58:30.269Z",
               "IsPinned": true,
@@ -72,9 +72,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "GameController.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Controllers\\GameController.cs",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Controllers\\GameController.cs",
               "RelativeDocumentMoniker": "GameServer\\Controllers\\GameController.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Controllers\\GameController.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Controllers\\GameController.cs",
               "RelativeToolTip": "GameServer\\Controllers\\GameController.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAswBQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -84,28 +84,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "GameServer\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Index.cshtml.cs*",
-              "RelativeToolTip": "GameServer\\Index.cshtml.cs*",
-              "ViewState": "AgIAAC0AAAAAAAAAAAASwDYAAAAVAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "GameServer\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "GameServer\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswBMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-03T08:06:14.494Z",
+              "WhenOpened": "2026-11-10T07:59:23.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Index.cshtml",
-              "RelativeDocumentMoniker": "GameServer\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Index.cshtml",
-              "RelativeToolTip": "GameServer\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "GameServer\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Pages\\Index.cshtml",
+              "RelativeToolTip": "GameServer\\Pages\\Index.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-03T07:44:41.118Z",
+              "WhenOpened": "2026-11-10T07:52:26.304Z",
               "EditorCaption": ""
             },
             {
@@ -114,26 +114,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GameState.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\GameState.cs",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameState.cs",
               "RelativeDocumentMoniker": "GameServer\\GameState.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\GameState.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameState.cs",
               "RelativeToolTip": "GameServer\\GameState.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwCcAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-06T08:18:31.214Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Program.cs",
               "RelativeDocumentMoniker": "GameServer\\Program.cs",
-              "ToolTip": "C:\\Users\\ryeki\\Development\\CSCE A401\\Temp\\server\\GameServer\\GameServer\\Program.cs",
+              "ToolTip": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\Program.cs",
               "RelativeToolTip": "GameServer\\Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-06T08:19:05.295Z",
               "EditorCaption": ""

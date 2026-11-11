@@ -24,7 +24,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("WebClient", policy =>
     {
         policy
-            .WithOrigins("https://localhost:7069")
+            .WithOrigins(["https://localhost:7069", "https://localhost:32769"])
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -51,6 +51,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi("/openapi/v1.json");
     app.MapScalarApiReference();
 }
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
