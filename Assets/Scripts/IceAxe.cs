@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class IceAxe : MonoBehaviour
@@ -8,11 +7,22 @@ public class IceAxe : MonoBehaviour
 
     public float reachDistance = 3f;
 
-    // Where the axe appears on the screen
+    [Header("Objects to click while holding the axe")]
+    public GameObject object1;
+    public GameObject object2;
+    public GameObject object3;
+    public GameObject objectToReveal;
+
+    private bool clicked1;
+    private bool clicked2;
+    private bool clicked3;
+    private bool objectiveCompleted;
+
+    [Header("Axe position")]
     public Vector3 holdPosition = new Vector3(0.4f, -0.35f, 0.7f);
     public Vector3 holdRotation = new Vector3(0f, -80f, -25f);
 
-    // How the axe rotates when swung
+    [Header("Axe swing")]
     public Vector3 swingRotation = new Vector3(-75f, 0f, 30f);
     public float swingDuration = 0.3f;
 
@@ -23,16 +33,19 @@ public class IceAxe : MonoBehaviour
 
     void Start()
     {
-        if (playerCamera == null)
+        if (playerCamera == null && player != null)
             playerCamera = player.GetComponentInChildren<Camera>();
 
         axeColliders = GetComponentsInChildren<Collider>();
         rb = GetComponent<Rigidbody>();
+
+        if (objectToReveal != null)
+            objectToReveal.SetActive(false);
     }
 
     void Update()
     {
-        // Right-click to drop axe
+        // Right-click to drop axe.
         if (Input.GetMouseButtonDown(1) && holdingAxe)
         {
             DropAxe();
@@ -45,14 +58,20 @@ public class IceAxe : MonoBehaviour
         Ray ray;
 
         if (Cursor.lockState == CursorLockMode.Locked)
-            ray = new Ray(playerCamera.transform.position,
-                          playerCamera.transform.forward);
+        {
+            ray = new Ray(
+                playerCamera.transform.position,
+                playerCamera.transform.forward
+            );
+        }
         else
+        {
             ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+        }
 
         if (!holdingAxe)
         {
-            // First click: pick up the axe
+            // First click: pick up the axe.
             if (Physics.Raycast(ray, out RaycastHit hit, reachDistance))
             {
                 if (hit.transform == transform ||
@@ -64,23 +83,61 @@ public class IceAxe : MonoBehaviour
         }
         else
         {
-            // Every later click: swing the axe
+            // Later clicks: swing and check the target.
             swingTimer = swingDuration;
 
-            // Only climb when facing a mountain
             if (Physics.Raycast(ray, out RaycastHit hit, reachDistance))
             {
+                CheckObjective(hit.collider.transform);
+
                 if (hit.collider.CompareTag("Mountain"))
                 {
                     player.BeginClimb(hit);
                     Debug.Log("Climbing");
                 }
-                else
-                {
-                    Debug.Log("Cannot climb this object");
-                }
             }
         }
+    }
+
+    void CheckObjective(Transform hitTransform)
+    {
+        if (objectiveCompleted) return;
+
+        if (!clicked1 && MatchesTarget(hitTransform, object1))
+        {
+            clicked1 = true;
+            object1.SetActive(false);
+        }
+
+        if (!clicked2 && MatchesTarget(hitTransform, object2))
+        {
+            clicked2 = true;
+            object2.SetActive(false);
+        }
+
+        if (!clicked3 && MatchesTarget(hitTransform, object3))
+        {
+            clicked3 = true;
+            object3.SetActive(false);
+        }
+
+        if (clicked1 && clicked2 && clicked3)
+        {
+            objectiveCompleted = true;
+
+            if (objectToReveal != null)
+                objectToReveal.SetActive(true);
+
+            Debug.Log("All three objects clicked!");
+        }
+    }
+
+    bool MatchesTarget(Transform hitTransform, GameObject target)
+    {
+        if (target == null) return false;
+
+        return hitTransform == target.transform ||
+               hitTransform.IsChildOf(target.transform);
     }
 
     void LateUpdate()
@@ -92,12 +149,11 @@ public class IceAxe : MonoBehaviour
         if (swingTimer > 0f)
         {
             float progress = 1f - Mathf.Clamp01(
-                swingTimer / swingDuration);
+                swingTimer / swingDuration
+            );
 
             float amount = Mathf.Sin(progress * Mathf.PI);
 
-            // Swing up/down relative to the camera,
-            // regardless of how the axe model is rotated
             transform.localRotation =
                 Quaternion.AngleAxis(
                     swingRotation.x * amount,
@@ -116,7 +172,6 @@ public class IceAxe : MonoBehaviour
     {
         holdingAxe = true;
 
-        // Disable collisions while holding it
         foreach (Collider col in axeColliders)
             col.enabled = false;
 
@@ -126,7 +181,6 @@ public class IceAxe : MonoBehaviour
             rb.useGravity = false;
         }
 
-        // Attach the axe to the player's camera
         transform.SetParent(playerCamera.transform);
         transform.localPosition = holdPosition;
         transform.localRotation = Quaternion.Euler(holdRotation);
