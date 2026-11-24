@@ -6,6 +6,7 @@ desktop.ini
 # Editors
 .idea/
 *.swp
+.vscode/
 
 # Secrets / local config — never commit these
 .env
@@ -35,3 +36,28 @@ venv/
 /Temp/
 /Logs/
 /UserSettings/
+
+# ==========================================
+# Visual Studio
+# ==========================================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.csproj.user
+
+# ==========================================
+# .NET / ASP.NET Core
+# ==========================================
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.trx
+
+# ==========================================
+# NuGet
+# ==========================================
+*.nupkg
+*.snupkg
