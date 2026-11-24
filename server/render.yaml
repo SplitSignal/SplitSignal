@@ -16,3 +16,15 @@ services:
 
       - key: MongoDB__DatabaseName
         value: SplitSignal
+        
+  - type: web
+    name: split-signal-web
+    runtime: docker
+    plan: free
+
+    dockerfilePath: ./web/SplitSignal_Web/Dockerfile
+    dockerContext: ./web
+
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:8080
