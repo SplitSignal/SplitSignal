@@ -2,7 +2,7 @@
 @model GameModel
 
 <div class="game-page" id="mazeApp">
-    <div class="game-heading">
+    <div class="game-heading" hidden>
         <div class="game-title-group">
             <div class="eyebrow">
                 <span class="eyebrow-dot"></span>
@@ -12,12 +12,7 @@
             <p id="gameStageDescription">Find the three symbols. Unity must collect them before the exit opens.</p>
         </div>
 
-        <div class="session-chip">
-            <small>SESSION</small>
-            <b class="session-Code"></b>
-            <span class="demoMode-Display" hidden>Demo mode</span>
-            <span class="liveMode-Display" hidden>Live API mode</span>
-        </div>
+
     </div>
 
     <div class="game-stage-progress" role="list" aria-label="Game progress">
@@ -39,7 +34,7 @@
                 <section class="maze-card">
                     <div class="maze-toolbar">
                         <div>
-                            <span class="section-kicker">PUZZLE 1 · YOUR MAP</span>
+                            <span class="section-kicker">YOUR MAP</span>
                             <h2>Snowbound passage</h2>
                         </div>
                         <span class="level-badge">❄ LEVEL 1</span>
@@ -105,7 +100,7 @@
             <div class="puzzle-console">
                 <div class="puzzle-heading">
                     <div>
-                        <span class="section-kicker">PUZZLE 2 · CODE WORD</span>
+                        <span class="section-kicker">CODE WORD</span>
                         <h2>Decode the mountain instrument</h2>
                         <p>Your Unity partner can reveal the method. Ask them to find the clue.</p>
                     </div>
@@ -139,7 +134,7 @@
                         <h2>Build the diagram</h2>
                         <p>Follow the pedestal shadow. Try to keep it cool.</p>
                     </div>
-                    <span class="level-badge">FINAL PUZZLE</span>
+                    <span class="level-badge">Ice Image</span>
                 </div>
                 <div class="puzzle-stage">
                     <div>
@@ -201,8 +196,6 @@
     <details class="activity-card game-activity">
         <summary>
             <span><span class="live-indicator" aria-hidden="true"></span> Mission activity</span>
-            <span class="activity-mode demoMode-Display" hidden>Demo mode</span>
-            <span class="activity-mode liveMode-Display" hidden>Live API mode</span>
             <span class="activity-view-label">View log</span>
         </summary>
         <div id="activityLog" class="game-log-scroll" aria-live="polite">
