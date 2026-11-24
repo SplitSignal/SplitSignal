@@ -1080,13 +1080,40 @@ main {
     font-size: 11px
 }
 
-.freeze-toggle {
-    display: flex;
+.ice-pond-status {
+    display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-size: 11px;
-    font-weight: 700
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    border: 1px solid #dbe7f0;
+    background: #f4f8fb;
+    color: #667c90;
 }
+
+    .ice-pond-status::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+        opacity: .75;
+    }
+
+    .ice-pond-status.is-active {
+        background: #effaf6;
+        border-color: #bfe4d7;
+        color: #2f8c72;
+    }
+
+    .ice-pond-status.is-inactive {
+        background: #f4f8fb;
+        border-color: #dbe7f0;
+        color: #75889a;
+    }
 
 .cube-grid {
     display: grid;
@@ -1102,8 +1129,14 @@ main {
     background: linear-gradient(145deg,#f0fbff,#a6d8f1);
     cursor: pointer;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    transition: background .18s ease, border-color .18s ease, box-shadow .18s ease
 }
+
+    .ice-cube.target-shadow {
+        background: linear-gradient(145deg,#ead8cb,#c9a88f);
+        border-color: #b79175;
+    }
 
     .ice-cube:after {
         content: "";
@@ -1255,4 +1288,422 @@ main {
 .cube-grid .ice-cube {
     min-width: 0;
     min-height: 34px;
+}
+/* ==========================================
+   Split Signal: viewport-based game stages
+   Scoped to Game.cshtml; the landing page is unchanged.
+   ========================================== */
+body.split-signal-game {
+    height: 100dvh;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+    body.split-signal-game .site-header {
+        flex: 0 0 auto;
+        height: 56px;
+        padding: 0 clamp(15px, 3vw, 40px);
+    }
+
+    body.split-signal-game .site-footer {
+        display: none;
+    }
+
+    body.split-signal-game main {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    body.split-signal-game .game-page {
+        height: 100%;
+        min-height: 0;
+        max-width: 1440px;
+        padding: clamp(10px, 1.7vh, 20px) clamp(12px, 2.5vw, 34px) 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        overflow: hidden;
+    }
+
+    body.split-signal-game .game-heading {
+        flex: 0 0 auto;
+        margin: 0;
+        min-height: 0;
+        align-items: center;
+    }
+
+        body.split-signal-game .game-heading h1 {
+            margin: 3px 0 1px;
+            font-size: clamp(23px, 2.6vw, 32px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        body.split-signal-game .game-heading p {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+    body.split-signal-game .session-chip {
+        padding: 9px 13px;
+        min-width: 160px;
+        max-width: 240px;
+    }
+
+.game-stage-progress {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.stage-step {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f0f4f8;
+    color: #8b9aaa;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.stage-step-number {
+    font-size: 10px;
+    opacity: .7;
+    font-weight: 800;
+}
+
+.stage-step.is-current {
+    background: #e9f4fb;
+    border-color: #8bc0db;
+    color: #236b9b;
+}
+
+.stage-step.is-done {
+    background: #edf8f1;
+    border-color: #b0dac4;
+    color: #307c61;
+}
+
+.game-stage-viewport {
+    flex: 1 1 auto;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-stage {
+    height: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+}
+
+    .game-stage.is-entering {
+        animation: split-signal-stage-in .4s ease-out both;
+    }
+
+@keyframes split-signal-stage-in {
+    from {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keep the square map within the available screen height on desktop. */
+body.split-signal-game .stage-maze .game-layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(275px, .85fr);
+    gap: 15px;
+    max-width: 1250px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+body.split-signal-game .stage-maze .maze-card {
+    padding: 16px;
+}
+
+body.split-signal-game .stage-maze .maze-toolbar h2 {
+    font-size: 18px;
+    margin: 2px 0 0;
+}
+
+body.split-signal-game .stage-maze .maze-instructions {
+    margin: 6px 0 10px;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+body.split-signal-game .stage-maze .maze-wrap {
+    display: grid;
+    place-items: center;
+    padding: 9px;
+}
+
+body.split-signal-game .stage-maze .maze-grid {
+    width: min(100%, max(290px, calc(100dvh - 330px)), 630px);
+    height: auto;
+    aspect-ratio: 1;
+    max-width: 100%;
+}
+
+body.split-signal-game .stage-maze .maze-legend {
+    padding-top: 10px;
+}
+
+body.split-signal-game .stage-maze .side-column {
+    gap: 12px;
+}
+
+body.split-signal-game .stage-maze .info-card {
+    padding: 14px 16px;
+}
+
+body.split-signal-game .stage-maze .mission-status {
+    margin: 9px 0 12px;
+}
+
+body.split-signal-game .stage-maze .controls-card h2,
+body.split-signal-game .stage-maze .clue-card h2 {
+    font-size: 16px;
+    margin: 2px 0 5px;
+}
+
+body.split-signal-game .stage-maze .dpad {
+    margin: 5px auto;
+    max-width: 175px;
+}
+
+    body.split-signal-game .stage-maze .dpad button {
+        height: 36px;
+    }
+
+body.split-signal-game .stage-maze .keyboard-note {
+    margin: 4px 0 0;
+}
+
+/* The two later stages are centered within the same viewport. */
+body.split-signal-game .stage-cipher,
+body.split-signal-game .stage-ice,
+body.split-signal-game .stage-complete {
+    padding: clamp(4px, 2vh, 18px) 4px;
+}
+
+body.split-signal-game .game-stage .puzzle-console {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: clamp(18px, 2.3vw, 34px);
+}
+
+body.split-signal-game .stage-cipher .puzzle-console {
+    max-width: 900px;
+}
+
+body.split-signal-game .puzzle-console .puzzle-stage {
+    padding-bottom: 0;
+}
+
+body.split-signal-game .stage-ice .puzzle-stage {
+    grid-template-columns: minmax(200px, .65fr) minmax(0, 1.35fr);
+}
+
+body.split-signal-game .stage-ice .pedestal-reference {
+    max-width: 205px;
+}
+
+body.split-signal-game .stage-ice .cube-grid {
+    max-width: 420px;
+}
+
+body.split-signal-game .stage-ice .ice-cube {
+    min-height: 0;
+}
+
+/* Activity history is available on demand without lengthening the game page. */
+body.split-signal-game .game-activity {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    body.split-signal-game .game-activity summary {
+        cursor: pointer;
+        padding: 8px 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 12px;
+        font-weight: 700;
+        list-style-position: inside;
+    }
+
+        body.split-signal-game .game-activity summary > span:first-child {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    body.split-signal-game .game-activity .activity-mode {
+        margin-left: auto;
+        color: #39806e;
+        font-size: 10px;
+    }
+
+body.split-signal-game .activity-view-label {
+    margin-left: auto;
+    color: #8292a4;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+body.split-signal-game .game-activity .activity-mode:not([hidden]) + .activity-view-label {
+    margin-left: 0;
+}
+
+body.split-signal-game .live-indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #41ad90;
+}
+
+body.split-signal-game .game-log-scroll {
+    max-height: 130px;
+    overflow: auto;
+    padding: 0 15px 6px;
+}
+
+    body.split-signal-game .game-log-scroll .activity-entry {
+        padding: 5px 0;
+    }
+
+.completion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    max-width: 620px;
+    min-height: min(460px, 75%);
+    margin: 4vh auto;
+    padding: 45px 30px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+
+.completion-icon {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    background: #e9f4fb;
+    border-radius: 50%;
+    font-size: 35px;
+}
+
+.completion-card h2 {
+    font: 800 clamp(27px, 4vw, 40px) Manrope, Arial, sans-serif;
+    margin: 0;
+}
+
+.completion-card p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.completion-note {
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    body.split-signal-game .stage-maze .game-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.split-signal-game .stage-maze .side-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+        body.split-signal-game .stage-maze .side-column .clue-card {
+            grid-column: 1 / -1;
+        }
+
+    body.split-signal-game .stage-maze .maze-grid {
+        width: min(100%, 500px);
+    }
+}
+
+@media (max-width: 650px) {
+    body.split-signal-game .site-header {
+        height: auto;
+        min-height: 52px;
+        padding: 7px 12px;
+    }
+
+    body.split-signal-game .game-page {
+        padding: 9px 11px 10px;
+        gap: 8px;
+    }
+
+    body.split-signal-game .game-heading {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+        body.split-signal-game .game-heading h1 {
+            font-size: 22px;
+        }
+
+        body.split-signal-game .game-heading p {
+            font-size: 10px;
+        }
+
+    body.split-signal-game .session-chip {
+        width: auto;
+        min-width: 105px;
+        max-width: 130px;
+        padding: 7px 9px;
+    }
+
+    body.split-signal-game .stage-step {
+        gap: 4px;
+        padding: 5px 3px;
+        font-size: 10px;
+    }
+
+    body.split-signal-game .stage-maze .side-column {
+        grid-template-columns: 1fr;
+    }
+
+    body.split-signal-game .stage-ice .puzzle-stage,
+    body.split-signal-game .stage-cipher .puzzle-stage {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-stage.is-entering {
+        animation: none;
+    }
 }
