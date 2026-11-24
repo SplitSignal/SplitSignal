@@ -24,7 +24,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("WebClient", policy =>
     {
         policy
-            .WithOrigins(["https://localhost:7069", "https://localhost:32769", "https://localhost:32773"])
+            .WithOrigins(["https://localhost:7069", 
+                "https://localhost:32769", 
+                "https://localhost:32773",
+                "https://split-signal-web.onrender.com"])
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
