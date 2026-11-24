@@ -1,0 +1,103 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Join the Escape Room";
+}
+
+
+<section class="landing">
+    <div class="hero-copy">
+        <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            TWO PLAYERS. ONE ESCAPE.
+        </div>
+
+        <h1>
+            Every clue matters.<br />
+            <span>Every player counts.</span>
+        </h1>
+
+        <p class="hero-description">
+            Your teammate is inside the winter escape room. You hold the clues they can’t see.
+            Work together, uncover the hidden symbol, and unlock the way out.
+        </p>
+
+        <div class="feature-row">
+            <div class="feature">
+                <span class="feature-icon">⌘</span>
+                <div>
+                    <b>Play together</b>
+                    <small>Coordinate with your teammate</small>
+                </div>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">❄</span>
+                <div>
+                    <b>Discover clues</b>
+                    <small>Explore the winter maze</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="join-card">
+        <span class="card-eyebrow">PLAYER ACCESS</span>
+        <h2>Ready to enter?</h2>
+        <p class="card-description">
+            Enter your details below to join the escape room.
+        </p>
+
+        <label>SESSION CODE</label>
+        <input id="SessionCode" 
+            placeholder="Session Code" 
+            autocomplete="off"
+            required/>
+        <!--
+            startSignalR() will begin the connection to the server
+            so that the web client can listen for input from Unity.
+
+            The id SessionCode is references in APIClient when startSignalR()
+            is initiated (on the button press).
+
+            The APIClient looks for the item with the id SessionCode to obtain
+            the SessionCode to use.
+        -->
+        <label>
+            <input type="checkbox" id="DemoMode-CheckBox" />
+            Demo Mode
+        </label>
+        <button class="primary-button" type="submit" onclick="startSignalR()">Join</button>
+     </div>
+</section>
+
+<section id="how-it-works" class="how-section">
+    <div>
+        <span class="section-kicker">THE MISSION</span>
+        <h2>Two perspectives. One solution.</h2>
+    </div>
+
+    <div class="steps">
+        <article>
+            <span>01</span>
+            <h3>Join the session</h3>
+            <p>Use the session code from your teammate.</p>
+        </article>
+
+        <article>
+            <span>02</span>
+            <h3>Explore the maze</h3>
+            <p>
+                Move through the snow-covered passages and find the hidden symbol.
+            </p>
+        </article>
+
+        <article>
+            <span>03</span>
+            <h3>Share the clue</h3>
+            <p>
+                Tell the Unity player the symbol to activate the mechanism.
+            </p>
+        </article>
+    </div>
+</section>
