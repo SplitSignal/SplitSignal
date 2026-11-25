@@ -512,31 +512,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ryeki\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/lizard856/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameServer.csproj",
+      "projectUniqueName": "/Users/lizard856/Documents/Unity/SplitSignal/server/GameServer/GameServer/GameServer.csproj",
       "projectName": "GameServer",
-      "projectPath": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\GameServer.csproj",
-      "packagesPath": "C:\\Users\\ryeki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ryeki\\OneDrive\\Documents\\GitHub\\SplitSignal\\server\\GameServer\\GameServer\\obj\\",
+      "projectPath": "/Users/lizard856/Documents/Unity/SplitSignal/server/GameServer/GameServer/GameServer.csproj",
+      "packagesPath": "/Users/lizard856/.nuget/packages/",
+      "outputPath": "/Users/lizard856/Documents/Unity/SplitSignal/server/GameServer/GameServer/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ryeki\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/lizard856/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -603,7 +596,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.401/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
