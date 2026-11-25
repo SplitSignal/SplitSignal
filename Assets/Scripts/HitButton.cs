@@ -50,6 +50,52 @@ public class HitButton : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        APIClient.Snowflake += ObjectFound;
+        APIClient.Tree += ObjectFound;
+        APIClient.Candle += ObjectFound;
+        APIClient.Paraglider += IceDiagram;
+        APIClient.Cage += CageButton;
+    }
+
+    private void OnDisable()
+    {
+        APIClient.Tree -= ObjectFound;
+        APIClient.Candle -= ObjectFound;
+        APIClient.Snowflake -= ObjectFound;
+        APIClient.Paraglider -= IceDiagram;
+        APIClient.Cage -= CageButton;
+    }
+
+    void ObjectFound(UpdateClient msg)
+    {
+        Debug.Log($"In object found: {msg.Object} log: {msg.Status}");
+
+        APIClient.UpdateReq(msg.Object, "collected", "Web");
+
+        Debug.Log($"Sent to web {msg.Object} log: {msg.Status}");
+    }
+
+    void CageButton(UpdateClient msg)
+    {
+        Debug.Log($"In cage button: {msg.Object} log: {msg.Status}");
+
+        APIClient.UpdateReq("code", "atbash cipher", "Web");
+
+        Debug.Log($"Sent to web code log: atbash cipher");
+    }
+
+    void IceDiagram(UpdateClient msg)
+    {
+        Debug.Log($"In ice diagram: {msg.Object} log: {msg.Status}");
+
+        APIClient.UpdateReq("iceDiagram", "found", "Web");
+
+        Debug.Log($"Sent to web iceDiagram log: found");
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         TryActivate(collision.gameObject);
