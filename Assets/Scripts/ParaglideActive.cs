@@ -2,20 +2,20 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class HitButtonInteraction
+public class ParaglideActiveInteraction
 {
     public string type = "interact";
-    public HitButtonPayload payload;
+    public ParaglideActivePayload payload;
 }
 
 [Serializable]
-public class HitButtonPayload
+public class ParaglideActivePayload
 {
     public string objectId;
     public string action;
 }
 
-public class HitButton : MonoBehaviour
+public class ParaglideActive : MonoBehaviour
 {
     [SerializeField] private string objectId = "red_button";
     [SerializeField] private string playerTag = "Player";
@@ -28,14 +28,16 @@ public class HitButton : MonoBehaviour
     private bool isActivated;
     private Color[] originalColors;
 
+    private RaiseActivate raiseCheck;
+
     public string ObjectId => objectId;
     public bool IsActivated => isActivated;
 
     // Fires when the player changes this button, with the message to send to the server
-    public event Action<HitButtonInteraction> Interacted;
-
+    public event Action<ParaglideActiveInteraction> Interacted;
     private void Awake()
     {
+        raiseCheck = GetComponent<RaiseActivate>();
         // Remember the starting colors so Deactivate() can put them back
         if (objectsToChange != null)
         {
@@ -52,29 +54,14 @@ public class HitButton : MonoBehaviour
 
     private void OnEnable()
     {
-        APIClient.Snowflake += ObjectFound;
-        APIClient.Tree += ObjectFound;
-        APIClient.Candle += ObjectFound;
         APIClient.Paraglider += IceDiagram;
         APIClient.Cage += CageButton;
     }
 
     private void OnDisable()
     {
-        APIClient.Tree -= ObjectFound;
-        APIClient.Candle -= ObjectFound;
-        APIClient.Snowflake -= ObjectFound;
         APIClient.Paraglider -= IceDiagram;
         APIClient.Cage -= CageButton;
-    }
-
-    void ObjectFound(UpdateClient msg)
-    {
-        Debug.Log($"In object found: {msg.Object} log: {msg.Status}");
-
-        APIClient.UpdateReq(msg.Object, "collected", "Web");
-
-        Debug.Log($"Sent to web {msg.Object} log: {msg.Status}");
     }
 
     void CageButton(UpdateClient msg)
@@ -132,6 +119,10 @@ public class HitButton : MonoBehaviour
     private void TryActivate(GameObject other)
     {
         if (!string.IsNullOrEmpty(playerTag) && !other.CompareTag(playerTag))
+        {
+            return;
+        }
+        if (raiseCheck != null && !raiseCheck.IsRaised)
         {
             return;
         }
@@ -198,9 +189,9 @@ public class HitButton : MonoBehaviour
 
     private void SendInteraction(string action)
     {
-        Interacted?.Invoke(new HitButtonInteraction
+        Interacted?.Invoke(new ParaglideActiveInteraction
         {
-            payload = new HitButtonPayload
+            payload = new ParaglideActivePayload
             {
                 objectId = objectId,
                 action = action

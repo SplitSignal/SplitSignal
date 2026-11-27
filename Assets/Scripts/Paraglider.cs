@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// A HitButton launches this. While flying it slowly falls, and when it hits something
+// A ParaglideActive launches this. While flying it slowly falls, and when it hits something
 // the view goes back to the player, the player can move again, and the button resets.
 public class Paraglider : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Paraglider : MonoBehaviour
     public Camera skyCamera;
 
     private Camera playerCamera;
-    private HitButton launchedBy;
+    private ParaglideActive launchedBy;
     private Renderer[] renderers;
     private Vector3 startPosition;
     private Quaternion startRotation;
@@ -37,7 +37,7 @@ public class Paraglider : MonoBehaviour
         }
     }
 
-    public void Launch(HitButton button)
+    public void Launch(ParaglideActive button)
     {
         launchedBy = button;
         flying = true;

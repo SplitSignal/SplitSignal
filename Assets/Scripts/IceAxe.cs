@@ -11,12 +11,10 @@ public class IceAxe : MonoBehaviour
     public GameObject object1;
     public GameObject object2;
     public GameObject object3;
-    public GameObject objectToReveal;
 
     private bool clicked1;
     private bool clicked2;
     private bool clicked3;
-    private bool objectiveCompleted;
 
     [Header("Axe position")]
     public Vector3 holdPosition = new Vector3(0.4f, -0.35f, 0.7f);
@@ -39,8 +37,6 @@ public class IceAxe : MonoBehaviour
         axeColliders = GetComponentsInChildren<Collider>();
         rb = GetComponent<Rigidbody>();
 
-        if (objectToReveal != null)
-            objectToReveal.SetActive(false);
     }
 
     void Update()
@@ -101,34 +97,25 @@ public class IceAxe : MonoBehaviour
 
     void CheckObjective(Transform hitTransform)
     {
-        if (objectiveCompleted) return;
-
         if (!clicked1 && MatchesTarget(hitTransform, object1))
         {
             clicked1 = true;
             object1.SetActive(false);
+            APIClient.UpdateReq("snowflake", "collected", "Web");
         }
 
         if (!clicked2 && MatchesTarget(hitTransform, object2))
         {
             clicked2 = true;
             object2.SetActive(false);
+            APIClient.UpdateReq("tree", "collected", "Web");
         }
 
         if (!clicked3 && MatchesTarget(hitTransform, object3))
         {
             clicked3 = true;
             object3.SetActive(false);
-        }
-
-        if (clicked1 && clicked2 && clicked3)
-        {
-            objectiveCompleted = true;
-
-            if (objectToReveal != null)
-                objectToReveal.SetActive(true);
-
-            Debug.Log("All three objects clicked!");
+            APIClient.UpdateReq("candle", "collected", "Web");
         }
     }
 
