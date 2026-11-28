@@ -52,35 +52,6 @@ public class ParaglideActive : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        APIClient.Paraglider += IceDiagram;
-        APIClient.Cage += CageButton;
-    }
-
-    private void OnDisable()
-    {
-        APIClient.Paraglider -= IceDiagram;
-        APIClient.Cage -= CageButton;
-    }
-
-    void CageButton(UpdateClient msg)
-    {
-        Debug.Log($"In cage button: {msg.Object} log: {msg.Status}");
-
-        APIClient.UpdateReq("code", "atbash cipher", "Web");
-
-        Debug.Log($"Sent to web code log: atbash cipher");
-    }
-
-    void IceDiagram(UpdateClient msg)
-    {
-        Debug.Log($"In ice diagram: {msg.Object} log: {msg.Status}");
-
-        APIClient.UpdateReq("iceDiagram", "found", "Web");
-
-        Debug.Log($"Sent to web iceDiagram log: found");
-    }
 
 
     private void OnCollisionEnter(Collision collision)

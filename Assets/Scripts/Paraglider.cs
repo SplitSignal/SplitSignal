@@ -80,6 +80,7 @@ public class Paraglider : MonoBehaviour
 
             if (hit.collider.gameObject == landingObject)
             {
+                APIClient.UpdateReq("iceDiagram", "found", "Web");
                 Debug.Log("Land");
             }
             else
