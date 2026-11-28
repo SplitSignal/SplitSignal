@@ -6,6 +6,7 @@ public class Escaped : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            APIClient.UpdateReq("game", "complete", "Web");
             Debug.Log("Game complete!");
         }
     }
