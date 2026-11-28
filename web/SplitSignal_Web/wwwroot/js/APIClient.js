@@ -2,6 +2,9 @@
 const API_PATH = "https://split-signal-server-6235.onrender.com/game/";
 const SIGNAL_PATH = "https://split-signal-server-6235.onrender.com/gamehub";
 
+//const API_PATH = "http://localhost:33000/game/";
+//const SIGNAL_PATH = "http://localhost:33000/gamehub";
+
 
 // SignalR connection
 const conn = new signalR.HubConnectionBuilder()
@@ -23,7 +26,8 @@ const unityMessageNames = [
     "candle",
     "code",
     "iceDiagram",
-    "icePond"
+    "icePond",
+    "game"
 ];
 
 for (const eventName of unityMessageNames) {

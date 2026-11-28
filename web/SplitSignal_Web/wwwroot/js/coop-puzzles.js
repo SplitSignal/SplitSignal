@@ -119,12 +119,12 @@
             blocks.forEach((cube, index) => {
                 const button = document.createElement("button");
                 button.type = "button";
-                const isTarget = targetKeys.has(cube.key);
+                const isTarget = diagramFound && targetKeys.has(cube.key);
                 button.className = `ice-cube${isTarget ? " target-shadow" : ""}${cube.placed ? " placed" : ""}${cube.melted ? " melted" : ""}`;
                 button.title = isTarget ? `Target position ${cube.key}` : `Position ${cube.key}`;
                 button.setAttribute("aria-label", `Block ${index + 1}, ${cube.placed ? "placed" : isTarget ? "target shadow" : "empty"}`);
                 button.textContent = cube.placed ? "◆" : cube.melted ? "×" : "";
-                button.disabled = !mazeComplete || !decoded || !diagramFound || pedestalDropped || sendingPedestal;
+                button.disabled = !mazeComplete || !decoded || pedestalDropped || sendingPedestal;
                 button.addEventListener("click", () => {
                     if (button.disabled) return;
                     cube.placed = !cube.placed; // Click again to correct an incorrect placement.
@@ -200,13 +200,17 @@
         });
 
         function maybeRevealIceStage() {
-            if (!mazeComplete || !decoded || !diagramFound) return;
+            if (!mazeComplete || !decoded) return;
             if (iceStage) iceStage.hidden = false;
             if (!iceStageAnnounced) {
                 iceStageAnnounced = true;
                 window.dispatchEvent(new CustomEvent("split-signal-ice-ready"));
             }
-            if (cubeFeedback) cubeFeedback.textContent = "Follow the pedestal shadow while Unity freezes the ice pond.";
+            if (cubeFeedback) {
+                cubeFeedback.textContent = diagramFound
+                    ? "Follow the pedestal shadow while Unity freezes the ice pond."
+                    : "Try arranging the ice blocks. Your partner may be able to find a clue.";
+            }
             drawCubes();
             refreshCubeStatus();
         }
@@ -229,7 +233,13 @@
                 }
             } else if (object === "icepond" && (status === "true" || status === "false")) {
                 setPondFrozen(status === "true");
+            } else if (object === "game" && status === "complete") {
+                document.getElementById("gameComplete").textContent = "Game complete, your partner escaped!";
+                document.querySelectorAll(".game-Complete").forEach(element => {
+                    element.textContent = "";
+                });
             }
+            
         });
 
         decodeForm.addEventListener("submit", async (event) => {
@@ -260,7 +270,7 @@
         });
 
         resetCubes?.addEventListener("click", () => {
-            if (!diagramFound || pedestalDropped) return;
+            if (!decoded || pedestalDropped) return;
             blocks = blocks.map((b) => ({ ...b, placed: false, melted: false, remainingMs: meltAfterMs, deadlineAt: 0 }));
             if (cubeFeedback) cubeFeedback.textContent = "Pedestal reset. Build the shape again.";
             drawCubes();
@@ -270,7 +280,7 @@
 
         // Five-second countdowns run only for blocks already placed.
         window.setInterval(() => {
-            if (!diagramFound || icePondFrozen || pedestalDropped || sendingPedestal) return;
+            if (!decoded || icePondFrozen || pedestalDropped || sendingPedestal) return;
             const now = Date.now();
             let melted = false;
             for (const cube of blocks) {

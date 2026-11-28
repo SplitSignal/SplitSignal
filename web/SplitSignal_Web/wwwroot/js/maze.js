@@ -212,6 +212,7 @@
         activity(`${symbol.label} discovered in the web maze.`);
         notify(`Found ${symbol.label}. Sending update to Unity...`);
         void notifyUnity(symbol);
+        checkExitUnlock();
       }
       render();
       updateStatus();
